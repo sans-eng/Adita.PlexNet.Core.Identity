@@ -30,7 +30,7 @@ namespace Adita.PlexNet.Core.Identity.EntityFrameworkCore
     /// <typeparam name="TKey">The type used for the primary key of a user.</typeparam>
     /// <typeparam name="TUser">The type that encapsulate the user.</typeparam>
     /// <typeparam name="TContext">The type used for the <see cref="DbContext"/>.</typeparam>
-    public abstract class UserRepository<TKey, TUser, TContext> :
+    public class UserRepository<TKey, TUser, TContext> :
          UserRepositoryBase<TKey, TUser>
          where TKey : IEquatable<TKey>
          where TUser : IdentityUser<TKey>, new()
@@ -49,7 +49,7 @@ namespace Adita.PlexNet.Core.Identity.EntityFrameworkCore
         /// <param name="errorDescriber">An <see cref="IdentityErrorDescriber" />
         /// to get localized error strings from.</param>
         /// <exception cref="ArgumentNullException"><paramref name="context"/> or <paramref name="errorDescriber"/> is <c>null</c></exception>
-        protected UserRepository(TContext context, IdentityErrorDescriber errorDescriber) : base(errorDescriber)
+        public UserRepository(TContext context, IdentityErrorDescriber errorDescriber) : base(errorDescriber)
         {
             if (errorDescriber is null)
             {

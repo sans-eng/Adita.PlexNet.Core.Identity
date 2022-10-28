@@ -31,7 +31,7 @@ namespace Adita.PlexNet.Core.Identity.EntityFrameworkCore
     /// <typeparam name="TKey">A type used for the primary key of a role claim.</typeparam>
     /// <typeparam name="TRoleClaim">A type for a role claim.</typeparam>
     /// <typeparam name="TContext">A type for <see cref="DbContext"/>.</typeparam>
-    public abstract class RoleClaimRepository<TKey, TRoleClaim, TContext> :
+    public class RoleClaimRepository<TKey, TRoleClaim, TContext> :
         RoleClaimRepositoryBase<TKey, TRoleClaim>
         where TKey : IEquatable<TKey>
         where TRoleClaim : IdentityRoleClaim<TKey>, new()
@@ -50,7 +50,7 @@ namespace Adita.PlexNet.Core.Identity.EntityFrameworkCore
         /// <param name="errorDescriber">An <see cref="IdentityErrorDescriber" />
         /// to get localized error strings from.</param>
         /// <exception cref="ArgumentNullException"><paramref name="context"/> or <paramref name="errorDescriber"/> is <c>null</c></exception>
-        protected RoleClaimRepository(TContext context, IdentityErrorDescriber errorDescriber)
+        public RoleClaimRepository(TContext context, IdentityErrorDescriber errorDescriber)
             : base(errorDescriber)
         {
             if (errorDescriber is null)
