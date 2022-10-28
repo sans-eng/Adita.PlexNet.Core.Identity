@@ -1,9 +1,10 @@
-﻿using Adita.PlexNet.Core.Identity.EntityFrameworkCore;
+﻿using Adita.PlexNet.Core.Identity;
+using Adita.PlexNet.Core.Identity.EntityFrameworkCore;
 using Adita.PlexNet.Core.Security.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Adita.PlexNet.Core.Identity.Extensions
+namespace Adita.PlexNet.Core.Extensions.Identity
 {
     /// <summary>
     /// Contains extension methods to <see cref="IServiceCollection"/> for configuring identity services.
@@ -33,7 +34,7 @@ namespace Adita.PlexNet.Core.Identity.Extensions
                 throw new ArgumentNullException(nameof(setupAction));
             }
 
-            return AddIdentity<Guid, IdentityUser, IdentityUserClaim, IdentityUserRole, IdentityRole, IdentityRoleClaim, TContext> (serviceDescriptors, setupAction);
+            return AddIdentity<Guid, IdentityUser, IdentityUserClaim, IdentityUserRole, IdentityRole, IdentityRoleClaim, TContext>(serviceDescriptors, setupAction);
         }
 
         /// <summary>
@@ -49,7 +50,7 @@ namespace Adita.PlexNet.Core.Identity.Extensions
         /// <exception cref="ArgumentNullException"><paramref name="serviceDescriptors"/> or <paramref name="setupAction"/> is <c>null</c>.</exception>
         public static IdentityBuilder<TKey, TUser, IdentityUserClaim<TKey>, IdentityUserRole<TKey>, TRole, IdentityRoleClaim<TKey>>
             AddIdentity<TKey, TUser, TRole, TContext>(this IServiceCollection serviceDescriptors, Action<IdentityOptions> setupAction)
-            where TKey : IEquatable<TKey>, new()
+            where TKey : IEquatable<TKey>
             where TUser : IdentityUser<TKey>, new()
             where TRole : IdentityRole<TKey>, new()
             where TContext : DbContext
@@ -65,35 +66,6 @@ namespace Adita.PlexNet.Core.Identity.Extensions
             }
 
             return AddIdentity<TKey, TUser, IdentityUserClaim<TKey>, IdentityUserRole<TKey>, TRole, IdentityRoleClaim<TKey>, TContext>(serviceDescriptors, setupAction);
-        }
-
-        /// <summary>
-        /// Adds and configures the identity system.
-        /// </summary>
-        /// <typeparam name="TKey">The type used for the primary key of the users and roles.</typeparam>
-        /// <typeparam name="TUser">The type for the users.</typeparam>
-        /// <typeparam name="TContext">The type for the <see cref="DbContext"/>.</typeparam>
-        /// <param name="serviceDescriptors">The services available in the application.</param>
-        /// <param name="setupAction">An action to configure the <see cref="IdentityOptions"/>.</param>
-        /// <returns>An <see cref="IdentityBuilder{TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim}"/> for creating and configuring the identity system.</returns>
-        /// <exception cref="ArgumentNullException"><paramref name="serviceDescriptors"/> or <paramref name="setupAction"/> is <c>null</c>.</exception>
-        public static IdentityBuilder<TKey, TUser, IdentityUserClaim<TKey>, IdentityUserRole<TKey>, IdentityRole<TKey>, IdentityRoleClaim<TKey>>
-            AddIdentity<TKey, TUser, TContext>(this IServiceCollection serviceDescriptors, Action<IdentityOptions> setupAction)
-            where TKey : IEquatable<TKey>
-            where TUser : IdentityUser<TKey>, new()
-            where TContext : DbContext
-        {
-            if (serviceDescriptors is null)
-            {
-                throw new ArgumentNullException(nameof(serviceDescriptors));
-            }
-
-            if (setupAction is null)
-            {
-                throw new ArgumentNullException(nameof(setupAction));
-            }
-
-            return AddIdentity<TKey, TUser, IdentityUserClaim<TKey>, IdentityUserRole<TKey>, IdentityRole<TKey>, IdentityRoleClaim<TKey>, TContext>(serviceDescriptors, setupAction);
         }
 
         /// <summary>
