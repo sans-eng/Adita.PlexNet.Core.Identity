@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Adita.PlexNet.Core.Identity", "Adita.PlexNet.Core.Identity\Adita.PlexNet.Core.Identity.csproj", "{5DED4CD7-11BF-4547-85C3-E2AE7FEA8774}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adita.PlexNet.Core.Identity.EntityFrameworkCore", "Adita.PlexNet.Core.Identity.EntityFrameworkCore\Adita.PlexNet.Core.Identity.EntityFrameworkCore.csproj", "{2C85851F-160F-4349-AD1A-A7547A6BD20F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adita.PlexNet.Core.Identity.Test", "Adita.PlexNet.Core.Identity.Test\Adita.PlexNet.Core.Identity.Test.csproj", "{9D10D10D-6F4D-4EA9-B584-04775C6D0270}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5DED4CD7-11BF-4547-85C3-E2AE7FEA8774}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DED4CD7-11BF-4547-85C3-E2AE7FEA8774}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DED4CD7-11BF-4547-85C3-E2AE7FEA8774}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DED4CD7-11BF-4547-85C3-E2AE7FEA8774}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C85851F-160F-4349-AD1A-A7547A6BD20F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C85851F-160F-4349-AD1A-A7547A6BD20F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C85851F-160F-4349-AD1A-A7547A6BD20F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C85851F-160F-4349-AD1A-A7547A6BD20F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D10D10D-6F4D-4EA9-B584-04775C6D0270}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D10D10D-6F4D-4EA9-B584-04775C6D0270}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D10D10D-6F4D-4EA9-B584-04775C6D0270}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D10D10D-6F4D-4EA9-B584-04775C6D0270}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C87AE7C9-A781-499A-8D71-5795DF3B9CC6}
+	EndGlobalSection
+EndGlobal
