@@ -35,7 +35,7 @@ namespace Adita.PlexNet.Core.Identity
     /// <typeparam name="TUserClaim">The type for a user claim.</typeparam>
     /// <typeparam name="TUserRole">The type for a user role.</typeparam>
     /// <typeparam name="TRole">The type of the role.</typeparam>
-    public class UserManager<TKey, TUser, TUserClaim, TUserRole, TRole> : IUserManager<TKey, TUser>, IUserManager<TKey, TUser, TRole>
+    public class UserManager<TKey, TUser, TUserClaim, TUserRole, TRole> : IUserManager<TKey, TUser, TRole>
         where TKey : IEquatable<TKey>
         where TUser : IdentityUser<TKey>, new()
         where TUserClaim : IdentityUserClaim<TKey>, new()
