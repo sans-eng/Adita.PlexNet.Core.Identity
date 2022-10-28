@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Adita.PlexNet.Core.Identity.EntityFrameworkCore\Adita.PlexNet.Core.Identity.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\Adita.PlexNet.Core.Identity\Adita.PlexNet.Core.Identity.csproj" />
+  </ItemGroup>
+
+</Project>
