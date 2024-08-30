@@ -201,11 +201,56 @@ namespace Adita.PlexNet.Core.Identity
         public virtual IdentityBuilder<TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim> ConfigureIdentityOptions(Action<IdentityOptions> configureAction)
         {
             Services.Configure(configureAction);
+            Services.AddOptions<ApplicationIdentityOptions>().Configure<IdentityOptions>(ConfigureApplicationIdentityOptions);
+            Services.AddOptions<LockoutOptions>().Configure<IdentityOptions>(ConfigureLockoutOptions);
+            Services.AddOptions<PasswordOptions>().Configure<IdentityOptions>(ConfigurePasswordOptions);
+            Services.AddOptions<RepositoryOptions>().Configure<IdentityOptions>(ConfigureRepositoryOptions);
+            Services.AddOptions<RoleOptions>().Configure<IdentityOptions>(ConfigureRoleOptions);
+            Services.AddOptions<UserOptions>().Configure<IdentityOptions>(ConfigureUserOptions);
+
+
             return this;
         }
         #endregion Public methods
 
         #region Private methods
+        private void ConfigureApplicationIdentityOptions(ApplicationIdentityOptions options, IdentityOptions identityOptions)
+        {
+            options.EmailClaimType = identityOptions.ApplicationIdentityOptions.EmailClaimType;
+            options.RoleClaimType = identityOptions.ApplicationIdentityOptions.RoleClaimType;
+            options.UserIdClaimType = identityOptions.ApplicationIdentityOptions.UserIdClaimType;
+            options.UserNameClaimType = identityOptions.ApplicationIdentityOptions.UserNameClaimType;
+        }
+        private void ConfigureLockoutOptions(LockoutOptions options, IdentityOptions identityOptions)
+        {
+            options.AllowedForNewUsers = identityOptions.LockoutOptions.AllowedForNewUsers;
+            options.MaxFailedAccessAttempts = identityOptions.LockoutOptions.MaxFailedAccessAttempts;
+            options.DefaultLockoutTimeSpan = identityOptions.LockoutOptions.DefaultLockoutTimeSpan;
+        }
+        private void ConfigurePasswordOptions(PasswordOptions options, IdentityOptions identityOptions)
+        {
+            options.RequireDigit = identityOptions.PasswordOptions.RequireDigit;
+            options.RequireNonAlphanumeric = identityOptions.PasswordOptions.RequireNonAlphanumeric;
+            options.RequiredLength = identityOptions.PasswordOptions.RequiredLength;
+            options.RequiredLowercase = identityOptions.PasswordOptions.RequiredLowercase;
+            options.RequiredUniqueChars = identityOptions.PasswordOptions.RequiredUniqueChars;
+            options.RequireUppercase = identityOptions.PasswordOptions.RequireUppercase;
+        }
+        private void ConfigureRepositoryOptions(RepositoryOptions options, IdentityOptions identityOptions)
+        {
+            options.MaxLengthForKeys = identityOptions.RepositoryOptions.MaxLengthForKeys;
+        }
+        private void ConfigureRoleOptions(RoleOptions options, IdentityOptions identityOptions)
+        {
+            options.AllowedRoleNameCharacters = identityOptions.RoleOptions.AllowedRoleNameCharacters;
+            options.RequiredRoleNameLength = identityOptions.RoleOptions.RequiredRoleNameLength;
+        }
+        private void ConfigureUserOptions(UserOptions options, IdentityOptions identityOptions)
+        {
+            options.AllowedUserNameCharacters = identityOptions.UserOptions.AllowedUserNameCharacters;
+            options.RequireUniqueEmail = identityOptions.UserOptions.RequireUniqueEmail;
+        }
+
         private IdentityBuilder<TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim> AddScoped(Type serviceType, Type concreteType)
         {
             Services.AddScoped(serviceType, concreteType);
