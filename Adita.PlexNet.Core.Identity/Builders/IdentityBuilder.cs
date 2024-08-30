@@ -22,6 +22,7 @@
 
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Options;
 
 namespace Adita.PlexNet.Core.Identity
 {
@@ -201,12 +202,12 @@ namespace Adita.PlexNet.Core.Identity
         public virtual IdentityBuilder<TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim> ConfigureIdentityOptions(Action<IdentityOptions> configureAction)
         {
             Services.Configure(configureAction);
-            Services.AddOptions<ApplicationIdentityOptions>().Configure<IdentityOptions>(ConfigureApplicationIdentityOptions);
-            Services.AddOptions<LockoutOptions>().Configure<IdentityOptions>(ConfigureLockoutOptions);
-            Services.AddOptions<PasswordOptions>().Configure<IdentityOptions>(ConfigurePasswordOptions);
-            Services.AddOptions<RepositoryOptions>().Configure<IdentityOptions>(ConfigureRepositoryOptions);
-            Services.AddOptions<RoleOptions>().Configure<IdentityOptions>(ConfigureRoleOptions);
-            Services.AddOptions<UserOptions>().Configure<IdentityOptions>(ConfigureUserOptions);
+            Services.AddOptions<ApplicationIdentityOptions>().Configure<IOptions<IdentityOptions>>(ConfigureApplicationIdentityOptions);
+            Services.AddOptions<LockoutOptions>().Configure<IOptions<IdentityOptions>>(ConfigureLockoutOptions);
+            Services.AddOptions<PasswordOptions>().Configure<IOptions<IdentityOptions>>(ConfigurePasswordOptions);
+            Services.AddOptions<RepositoryOptions>().Configure<IOptions<IdentityOptions>>(ConfigureRepositoryOptions);
+            Services.AddOptions<RoleOptions>().Configure<IOptions<IdentityOptions>>(ConfigureRoleOptions);
+            Services.AddOptions<UserOptions>().Configure<IOptions<IdentityOptions>>(ConfigureUserOptions);
 
 
             return this;
@@ -214,41 +215,41 @@ namespace Adita.PlexNet.Core.Identity
         #endregion Public methods
 
         #region Private methods
-        private void ConfigureApplicationIdentityOptions(ApplicationIdentityOptions options, IdentityOptions identityOptions)
+        private void ConfigureApplicationIdentityOptions(ApplicationIdentityOptions options, IOptions<IdentityOptions> identityOptions)
         {
-            options.EmailClaimType = identityOptions.ApplicationIdentityOptions.EmailClaimType;
-            options.RoleClaimType = identityOptions.ApplicationIdentityOptions.RoleClaimType;
-            options.UserIdClaimType = identityOptions.ApplicationIdentityOptions.UserIdClaimType;
-            options.UserNameClaimType = identityOptions.ApplicationIdentityOptions.UserNameClaimType;
+            options.EmailClaimType = identityOptions.Value.ApplicationIdentityOptions.EmailClaimType;
+            options.RoleClaimType = identityOptions.Value.ApplicationIdentityOptions.RoleClaimType;
+            options.UserIdClaimType = identityOptions.Value.ApplicationIdentityOptions.UserIdClaimType;
+            options.UserNameClaimType = identityOptions.Value.ApplicationIdentityOptions.UserNameClaimType;
         }
-        private void ConfigureLockoutOptions(LockoutOptions options, IdentityOptions identityOptions)
+        private void ConfigureLockoutOptions(LockoutOptions options, IOptions<IdentityOptions> identityOptions)
         {
-            options.AllowedForNewUsers = identityOptions.LockoutOptions.AllowedForNewUsers;
-            options.MaxFailedAccessAttempts = identityOptions.LockoutOptions.MaxFailedAccessAttempts;
-            options.DefaultLockoutTimeSpan = identityOptions.LockoutOptions.DefaultLockoutTimeSpan;
+            options.AllowedForNewUsers = identityOptions.Value.LockoutOptions.AllowedForNewUsers;
+            options.MaxFailedAccessAttempts = identityOptions.Value.LockoutOptions.MaxFailedAccessAttempts;
+            options.DefaultLockoutTimeSpan = identityOptions.Value.LockoutOptions.DefaultLockoutTimeSpan;
         }
-        private void ConfigurePasswordOptions(PasswordOptions options, IdentityOptions identityOptions)
+        private void ConfigurePasswordOptions(PasswordOptions options, IOptions<IdentityOptions> identityOptions)
         {
-            options.RequireDigit = identityOptions.PasswordOptions.RequireDigit;
-            options.RequireNonAlphanumeric = identityOptions.PasswordOptions.RequireNonAlphanumeric;
-            options.RequiredLength = identityOptions.PasswordOptions.RequiredLength;
-            options.RequiredLowercase = identityOptions.PasswordOptions.RequiredLowercase;
-            options.RequiredUniqueChars = identityOptions.PasswordOptions.RequiredUniqueChars;
-            options.RequireUppercase = identityOptions.PasswordOptions.RequireUppercase;
+            options.RequireDigit = identityOptions.Value.PasswordOptions.RequireDigit;
+            options.RequireNonAlphanumeric = identityOptions.Value.PasswordOptions.RequireNonAlphanumeric;
+            options.RequiredLength = identityOptions.Value.PasswordOptions.RequiredLength;
+            options.RequiredLowercase = identityOptions.Value.PasswordOptions.RequiredLowercase;
+            options.RequiredUniqueChars = identityOptions.Value.PasswordOptions.RequiredUniqueChars;
+            options.RequireUppercase = identityOptions.Value.PasswordOptions.RequireUppercase;
         }
-        private void ConfigureRepositoryOptions(RepositoryOptions options, IdentityOptions identityOptions)
+        private void ConfigureRepositoryOptions(RepositoryOptions options, IOptions<IdentityOptions> identityOptions)
         {
-            options.MaxLengthForKeys = identityOptions.RepositoryOptions.MaxLengthForKeys;
+            options.MaxLengthForKeys = identityOptions.Value.RepositoryOptions.MaxLengthForKeys;
         }
-        private void ConfigureRoleOptions(RoleOptions options, IdentityOptions identityOptions)
+        private void ConfigureRoleOptions(RoleOptions options, IOptions<IdentityOptions> identityOptions)
         {
-            options.AllowedRoleNameCharacters = identityOptions.RoleOptions.AllowedRoleNameCharacters;
-            options.RequiredRoleNameLength = identityOptions.RoleOptions.RequiredRoleNameLength;
+            options.AllowedRoleNameCharacters = identityOptions.Value.RoleOptions.AllowedRoleNameCharacters;
+            options.RequiredRoleNameLength = identityOptions.Value.RoleOptions.RequiredRoleNameLength;
         }
-        private void ConfigureUserOptions(UserOptions options, IdentityOptions identityOptions)
+        private void ConfigureUserOptions(UserOptions options, IOptions<IdentityOptions> identityOptions)
         {
-            options.AllowedUserNameCharacters = identityOptions.UserOptions.AllowedUserNameCharacters;
-            options.RequireUniqueEmail = identityOptions.UserOptions.RequireUniqueEmail;
+            options.AllowedUserNameCharacters = identityOptions.Value.UserOptions.AllowedUserNameCharacters;
+            options.RequireUniqueEmail = identityOptions.Value.UserOptions.RequireUniqueEmail;
         }
 
         private IdentityBuilder<TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim> AddScoped(Type serviceType, Type concreteType)
