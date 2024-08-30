@@ -14,17 +14,18 @@
     <PackageIcon>favicon.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/sans-eng/Adita.PlexNet.Core.Identity</RepositoryUrl>
-    <Copyright>© 2022 Adita</Copyright>
+    <Copyright>© 2024 Adita</Copyright>
     <PackageTags>identity; core; plexnet; net; net6;</PackageTags>
-    <PackageReleaseNotes>First release</PackageReleaseNotes>
+    <PackageReleaseNotes>Fixed issue on options always default value</PackageReleaseNotes>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\Adita.PlexNet.Core.Logging\favicon.png">
-      <Pack>True</Pack>
+    <None Include="..\favicon.png" Link="favicon.png">
       <PackagePath>\</PackagePath>
+      <Pack>True</Pack>
     </None>
     <None Include="..\LICENSE.txt">
       <Pack>True</Pack>
