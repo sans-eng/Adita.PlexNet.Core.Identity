@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <Title>Adita.PlexNet.Core.Identity.Extensions</Title>
-    <Version>1.0.1.0</Version>
+    <Version>1.0.0.0</Version>
     <Authors>Setya Adi Kurnia</Authors>
     <Company>Adita</Company>
     <Description>A identity service extensions for PlexNet framework that targeting .NET 6</Description>
@@ -16,10 +16,9 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/sans-eng/Adita.PlexNet.Core.Identity</RepositoryUrl>
     <PackageTags>identity; plexnet; core; net; net6; extension;</PackageTags>
-    <PackageReleaseNotes>Dependencies changed</PackageReleaseNotes>
+    <PackageReleaseNotes>First release</PackageReleaseNotes>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
