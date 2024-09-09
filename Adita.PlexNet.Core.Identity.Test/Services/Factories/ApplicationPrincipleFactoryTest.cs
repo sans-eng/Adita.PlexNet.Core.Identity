@@ -1,11 +1,11 @@
-﻿using Adita.PlexNet.Core.Extensions.Logging;
-using Adita.PlexNet.Core.Identity.Test.Services.Repositories.RoleClaimRepositories;
+﻿using Adita.PlexNet.Core.Identity.Test.Services.Repositories.RoleClaimRepositories;
 using Adita.PlexNet.Core.Identity.Test.Services.Repositories.RoleRepositories;
 using Adita.PlexNet.Core.Identity.Test.Services.Repositories.UserClaimRepositories;
 using Adita.PlexNet.Core.Identity.Test.Services.Repositories.UserRepositories;
 using Adita.PlexNet.Core.Identity.Test.Services.Repositories.UserRoleRepositories;
 using Adita.PlexNet.Core.Security.Principals;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using System.Security.Claims;
 
 namespace Adita.PlexNet.Core.Identity.Test.Services.Factories
@@ -21,21 +21,7 @@ namespace Adita.PlexNet.Core.Identity.Test.Services.Factories
         {
             var services = new ServiceCollection();
 
-            string defaultDirectory = "D://";
-
-            string? appDirectory = Path.GetDirectoryName(Directory.GetCurrentDirectory());
-            string? debugDirectory = Path.GetDirectoryName(appDirectory);
-            string? projectDirectory = Path.GetDirectoryName(debugDirectory);
-            string directory = Path.Combine(projectDirectory ?? defaultDirectory, "Logs");
-
-            services.AddLogging(
-                buildier => buildier.AddFileLogger(
-                        config =>
-                        {
-                            config.Directory = directory;
-                            config.FileNamePrefix = "Identity";
-                        })
-                );
+            services.AddLogging(builder => builder.AddDebug());
 
             services.Configure<UserOptions>(
              options =>

@@ -1,10 +1,10 @@
 ﻿using Adita.PlexNet.Core.Extensions.Identity;
-using Adita.PlexNet.Core.Extensions.Logging;
 using Adita.PlexNet.Core.Identity.EntityFrameworkCore;
 using Adita.PlexNet.Core.Identity.Test.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 namespace Adita.PlexNet.Core.Identity.Test.Extensions
 {
@@ -16,21 +16,9 @@ namespace Adita.PlexNet.Core.Identity.Test.Extensions
         {
             IServiceCollection services = new ServiceCollection();
 
-            string defaultDirectory = "D://";
+            services.AddLogging(builder => builder.AddDebug());
 
-            string? appDirectory = Path.GetDirectoryName(Directory.GetCurrentDirectory());
-            string? debugDirectory = Path.GetDirectoryName(appDirectory);
-            string? projectDirectory = Path.GetDirectoryName(debugDirectory);
-            string directory = Path.Combine(projectDirectory ?? defaultDirectory, "Logs");
-
-            services.AddLogging(builder =>
-            builder.AddFileLogger(configure =>
-            {
-                configure.Directory = directory;
-                configure.FileNamePrefix = "IdentityTest";
-            }));
-
-            services.AddDbContext<DefaultIdentityDbContext>(contextOptions =>
+            services.AddDbContext<IdentityDbContext>(contextOptions =>
             {
                 contextOptions.UseInMemoryDatabase("IdentityTest")
                 .ConfigureWarnings(b => b.Ignore(InMemoryEventId.TransactionIgnoredWarning));
@@ -60,19 +48,7 @@ namespace Adita.PlexNet.Core.Identity.Test.Extensions
         {
             IServiceCollection services = new ServiceCollection();
 
-            string defaultDirectory = "D://";
-
-            string? appDirectory = Path.GetDirectoryName(Directory.GetCurrentDirectory());
-            string? debugDirectory = Path.GetDirectoryName(appDirectory);
-            string? projectDirectory = Path.GetDirectoryName(debugDirectory);
-            string directory = Path.Combine(projectDirectory ?? defaultDirectory, "Logs");
-
-            services.AddLogging(builder =>
-            builder.AddFileLogger(configure =>
-            {
-                configure.Directory = directory;
-                configure.FileNamePrefix = "CustomIdentityTest";
-            }));
+            services.AddLogging(builder => builder.AddDebug());
 
             services.AddDbContext<CustomIdentityDbContext>(contextOptions =>
             {
