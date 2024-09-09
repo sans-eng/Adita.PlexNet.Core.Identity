@@ -30,13 +30,13 @@ namespace Adita.PlexNet.Core.Identity.Test.Extensions
                 configure.FileNamePrefix = "IdentityTest";
             }));
 
-            services.AddDbContext<IdentityDbContext>(contextOptions =>
+            services.AddDbContext<DefaultIdentityDbContext>(contextOptions =>
             {
                 contextOptions.UseInMemoryDatabase("IdentityTest")
                 .ConfigureWarnings(b => b.Ignore(InMemoryEventId.TransactionIgnoredWarning));
             });
 
-            services.AddDefaultIdentity<IdentityDbContext>(setupAction =>
+            services.AddDefaultIdentity<DefaultIdentityDbContext>(setupAction =>
             {
                 setupAction.PasswordOptions.RequireDigit = false;
                 setupAction.PasswordOptions.RequireNonAlphanumeric = false;
