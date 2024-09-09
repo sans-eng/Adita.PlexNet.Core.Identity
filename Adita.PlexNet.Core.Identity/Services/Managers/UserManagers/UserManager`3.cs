@@ -1370,7 +1370,7 @@ namespace Adita.PlexNet.Core.Identity
             string passwordHash = _passwordHasher.HashPassword(user, newPassword);
 
             await UserRepository.SetPasswordHashAsync(user, passwordHash, _cancellationToken);
-            _logger.LogInformation("User {0] password hash updated", user.UserName);
+            _logger.LogInformation("User {0} password hash updated", user.UserName);
             return await UpdateAsync(user);
         }
         /// <summary>
