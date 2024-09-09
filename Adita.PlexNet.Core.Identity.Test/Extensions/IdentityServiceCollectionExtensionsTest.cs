@@ -18,7 +18,7 @@ namespace Adita.PlexNet.Core.Identity.Test.Extensions
 
             services.AddLogging(builder => builder.AddDebug());
 
-            services.AddDbContext<IdentityDbContext>(contextOptions =>
+            services.AddDbContext<DefaultIdentityDbContext>(contextOptions =>
             {
                 contextOptions.UseInMemoryDatabase("IdentityTest")
                 .ConfigureWarnings(b => b.Ignore(InMemoryEventId.TransactionIgnoredWarning));
