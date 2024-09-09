@@ -15,14 +15,13 @@ namespace Adita.PlexNet.Core.Extensions.Identity
         /// <summary>
         /// Adds and configures the default identity system.
         /// </summary>
-        /// <typeparam name="TContext">The type for the <see cref="DbContext"/>.</typeparam>
         /// <param name="serviceDescriptors">The services available in the application.</param>
         /// <param name="setupAction">An action to configure the <see cref="IdentityOptions"/>.</param>
         /// <returns>An <see cref="IdentityBuilder{TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim}"/> for creating and configuring the identity system.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="serviceDescriptors"/> or <paramref name="setupAction"/> is <c>null</c>.</exception>
         public static IdentityBuilder<Guid, IdentityUser, IdentityUserClaim, IdentityUserRole, IdentityRole, IdentityRoleClaim>
             AddDefaultIdentity<TContext>(this IServiceCollection serviceDescriptors, Action<IdentityOptions> setupAction)
-            where TContext : DbContext
+            where TContext : DefaultIdentityDbContext
         {
             if (serviceDescriptors is null)
             {

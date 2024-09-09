@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <Title>Adita.PlexNet.Core.Identity.EntityFrameworkCore</Title>
-    <Version>1.0.1.0</Version>
+    <Version>1.0.3.0</Version>
     <Authors>Setya Adi Kurnia</Authors>
     <Company>Adita</Company>
     <Description>An implementation of Adita.PlexNet.Core.Identity for Microsoft.EntityFrameworkCore</Description>
