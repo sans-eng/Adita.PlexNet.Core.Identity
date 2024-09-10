@@ -24,8 +24,4 @@
     <ProjectReference Include="..\Adita.PlexNet.Core.Identity\Adita.PlexNet.Core.Identity.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Logs\" />
-  </ItemGroup>
-
 </Project>

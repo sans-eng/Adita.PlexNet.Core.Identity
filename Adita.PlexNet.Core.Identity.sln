@@ -5,11 +5,13 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Adita.PlexNet.Core.Identity", "Adita.PlexNet.Core.Identity\Adita.PlexNet.Core.Identity.csproj", "{5DED4CD7-11BF-4547-85C3-E2AE7FEA8774}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adita.PlexNet.Core.Identity.EntityFrameworkCore", "Adita.PlexNet.Core.Identity.EntityFrameworkCore\Adita.PlexNet.Core.Identity.EntityFrameworkCore.csproj", "{2C85851F-160F-4349-AD1A-A7547A6BD20F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Adita.PlexNet.Core.Identity.EntityFrameworkCore", "Adita.PlexNet.Core.Identity.EntityFrameworkCore\Adita.PlexNet.Core.Identity.EntityFrameworkCore.csproj", "{2C85851F-160F-4349-AD1A-A7547A6BD20F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adita.PlexNet.Core.Identity.Test", "Adita.PlexNet.Core.Identity.Test\Adita.PlexNet.Core.Identity.Test.csproj", "{9D10D10D-6F4D-4EA9-B584-04775C6D0270}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Adita.PlexNet.Core.Identity.Test", "Adita.PlexNet.Core.Identity.Test\Adita.PlexNet.Core.Identity.Test.csproj", "{9D10D10D-6F4D-4EA9-B584-04775C6D0270}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adita.PlexNet.Core.Identity.Extensions", "Adita.PlexNet.Core.Identity.Extensions\Adita.PlexNet.Core.Identity.Extensions.csproj", "{2A1121C4-A901-4CF4-8407-EA03BCD92B40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Adita.PlexNet.Core.Identity.Extensions", "Adita.PlexNet.Core.Identity.Extensions\Adita.PlexNet.Core.Identity.Extensions.csproj", "{2A1121C4-A901-4CF4-8407-EA03BCD92B40}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestResults", "TestResults", "{68558596-F56B-4552-BFED-6CC4F661D4AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
