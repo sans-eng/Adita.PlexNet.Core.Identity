@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Adita.PlexNet.Core.Identity
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Adita.PlexNet.Core.Identity.Extensions", "Adita.PlexNet.Core.Identity.Extensions\Adita.PlexNet.Core.Identity.Extensions.csproj", "{2A1121C4-A901-4CF4-8407-EA03BCD92B40}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestResults", "TestResults", "{68558596-F56B-4552-BFED-6CC4F661D4AF}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
