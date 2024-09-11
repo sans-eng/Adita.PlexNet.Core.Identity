@@ -12,7 +12,7 @@ This repo contains:
 
 ### Add the dependencies
 You need to add the dependencies to your project through the *nuget package manager*.
-- `IdentityDbContext<TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim>`
+- `Adita.PlexNet.Core.Identity`
 - `Adita.PlexNet.Core.Identity.EntityFrameworkCore`
 - `Adita.PlexNet.Core.Identity.Extensions`
 - `Adita.PlexNet.Core.Security`
