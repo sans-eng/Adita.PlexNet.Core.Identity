@@ -122,7 +122,7 @@ services.AddIdentity<string, AppIdentityUser, AppIdentityUserClaim, AppIdentityU
 > You can learn more about role-based security [here](https://learn.microsoft.com/en-us/dotnet/standard/security/role-based-security).
 
 - **User manager**<br>
-  The user manager is registered to the dependency container as `Adita.PlexNet.Core.Identity.IUserManager<TKey, TUser, TRole>`, it means you can only get the instance by specifying your `TKey`, `TUser` and `TUser`.<br>
+  The user manager is registered to the dependency container as `Adita.PlexNet.Core.Identity.IUserManager<TKey, TUser, TRole>`, it means you can only get the instance by specifying your `TKey`, `TUser` and `TRole`.<br>
   You can manage the users such as create user, delete user, reset password, add to roles, add claims etc. here.
 
 - **Role manager**<br>
