@@ -19,7 +19,7 @@ You need to add the dependencies to your project through the *nuget package mana
 
 ### Create the Database Context
 You can create the *Database Context* in several ways.
-- **Default Identity model**
+- **Default Identity model**<br>
   If you want just using the default Identity that served by the library you can create the *Database Context* by deriving it from `Adita.PlexNet.Core.Identity.EntityFrameworkCore.DefaultIdentityDbContext` type.
   A default identity is using `Adita.PlexNet.Core.Identity.IdentityUser`, `Adita.PlexNet.Core.Identity.IdentityUserClaim`, `Adita.PlexNet.Core.Identity.IdentityUserRole`, `Adita.PlexNet.Core.Identity.IdentityRole`
   and `Adita.PlexNet.Core.Identity.IdentityRoleClaim`.<br>
@@ -33,7 +33,7 @@ You can create the *Database Context* in several ways.
         }
     }
   ```
-- **Custom Identity model**
+- **Custom Identity model**<br>
   To use custom identity model you need to implements your own `Adita.PlexNet.Core.Identity.IdentityUser<T>`, `Adita.PlexNet.Core.Identity.IdentityUserClaim<T>`, `Adita.PlexNet.Core.Identity.IdentityUserRole<T>`, `Adita.PlexNet.Core.Identity.IdentityRole<T>`
   and `Adita.PlexNet.Core.Identity.IdentityRoleClaim<T>`, than you can use each of the models in your *Database Context* that deriving from `Adita.PlexNet.Core.Identity.EntityFrameworkCore.IdentityDbContext<TKey, TUser, TUserClaim, TUserRole, TRole, TRoleClaim>` where the The `TKey` is your own key type.<br>
   e.g.:
@@ -102,7 +102,7 @@ services.AddIdentity<string, AppIdentityUser, AppIdentityUserClaim, AppIdentityU
 
 ### Consuming the APIs
 #### Primary APIs
-- **Sign in manager**
+- **Sign in manager**<br>
   The sign in manager is registered to the dependency container as `Adita.PlexNet.Core.Identity.ISignInManager<TUser>`, it means you can only get the instance by specifying your `TUser`.<br>
   Sign in the user:
   ```
@@ -120,10 +120,10 @@ services.AddIdentity<string, AppIdentityUser, AppIdentityUserClaim, AppIdentityU
   > will be a `Adita.PlexNet.Core.Security.Principals.ApplicationPrincipal`, then you can easily access the current user, claims, roles etc. there.
   > You can learn more about role-based security [here](https://learn.microsoft.com/en-us/dotnet/standard/security/role-based-security).
 
-- **User manager**
+- **User manager**<br>
   The user manager is registered to the dependency container as `Adita.PlexNet.Core.Identity.IUserManager<TKey, TUser, TRole>`, it means you can only get the instance by specifying your `TKey`, `TUser` and `TUser`.<br>
   You can manage the users such as create user, delete user, reset password, add to roles, add claims etc. here.
 
-- **Role manager**
+- **Role manager**<br>
   The role manager is registered to the dependency container as `Adita.PlexNet.Core.Identity.IRoleManager<TKey, TRole>`, it means you can only get the instance by specifying your `TKey` and `TRole`.<br>
   You can manage the roles such as create, delete, update, checking specific role exist etc. here.
