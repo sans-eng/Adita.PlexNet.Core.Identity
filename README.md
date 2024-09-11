@@ -1,4 +1,5 @@
 # Adita.PlexNet.Core.Identity
+![Passing](https://github.com/sans-eng/Adita.PlexNet.Core.Identity/actions/workflows/main.yml/badge.svg?branch=master)
 
 This repo contains:
 - `Adita.PlexNet.Core.Identity`
@@ -7,8 +8,6 @@ This repo contains:
   <br>An implementation of `Adita.PlexNet.Core.Identity` for `Microsoft.EntityFrameworkCore`
 - `Adita.PlexNet.Core.Identity.Extensions`
   <br>Extensions for add identity to `Microsoft.Extensions.DependencyInjection.IServiceCollection`
-
-![Passing](https://github.com/sans-eng/Adita.PlexNet.Core.Identity/actions/workflows/main.yml/badge.svg?branch=master)
 
 ## How to use
 
