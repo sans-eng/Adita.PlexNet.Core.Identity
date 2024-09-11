@@ -24,10 +24,16 @@ namespace Adita.PlexNet.Core.Identity.Test.Extensions
                 .ConfigureWarnings(b => b.Ignore(InMemoryEventId.TransactionIgnoredWarning));
             });
 
-            services.AddDefaultIdentity<DefaultIdentityDbContext>(setupAction =>
+            services.AddDefaultIdentity<DefaultIdentityDbContext>(options =>
             {
-                setupAction.PasswordOptions.RequireDigit = false;
-                setupAction.PasswordOptions.RequireNonAlphanumeric = false;
+                options.PasswordOptions.RequireNonAlphanumeric = false;
+                options.PasswordOptions.RequiredLength = 4;
+                options.PasswordOptions.RequireDigit = false;
+                options.PasswordOptions.RequireUppercase = false;
+                options.PasswordOptions.RequiredLowercase = false;
+
+                options.LockoutOptions.AllowedForNewUsers = false;
+                options.LockoutOptions.DefaultLockoutTimeSpan = TimeSpan.FromSeconds(5);
             });
 
             IServiceProvider serviceProvider = services.BuildServiceProvider();
