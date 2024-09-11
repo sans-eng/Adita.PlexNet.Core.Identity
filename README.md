@@ -8,6 +8,8 @@ This repo contains:
 - `Adita.PlexNet.Core.Identity.Extensions`
   <br>Extensions for add identity to `Microsoft.Extensions.DependencyInjection.IServiceCollection`
 
+![Passing](https://github.com/sans-eng/Adita.PlexNet.Core.Identity/actions/workflows/main.yml/badge.svg?branch=master)
+
 ## How to use
 
 ### Add the dependencies
