@@ -116,8 +116,7 @@ services.AddIdentity<string, AppIdentityUser, AppIdentityUserClaim, AppIdentityU
   await _signInManager.SignOutAsync();
   ```
   > [!NOTE]
-  > The signed in user will be registered as `Adita.PlexNet.Core.Security.Claims.ApplicationIdentity` in `System.Threading.Thread.CurrentPrincipal` which the actual `System.Threading.Thread.CurrentPrincipal`
-  > will be a `Adita.PlexNet.Core.Security.Principals.ApplicationPrincipal`, then you can easily access the current user, claims, roles etc. there.
+  > The signed in user will be registered as `Adita.PlexNet.Core.Security.Claims.ApplicationIdentity` in `System.Threading.Thread.CurrentPrincipal` which the actual `System.Threading.Thread.CurrentPrincipal` will be a `Adita.PlexNet.Core.Security.Principals.ApplicationPrincipal`, then you can easily access the current user, claims, roles etc. there.<br>
   > You can learn more about role-based security [here](https://learn.microsoft.com/en-us/dotnet/standard/security/role-based-security).
 
 - **User manager**<br>
